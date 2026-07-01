@@ -1,33 +1,43 @@
-# Compiled binaries
+# Compiled binaries and installers
 *.exe
 *.msi
 *.zip
 
-# PyInstaller build directories
-build/
-dist/
-*.spec
+# PyInstaller build and output directories in any folder
+**/build/
+**/dist/
+**/monitoring_agents/**/build/
+**/monitoring_agents/**/dist/
 
-# Local config & credentials (sensitive data)
+# Local configuration files and credentials (sensitive info)
+**/google_creds.json
+**/rdp_monitor_config.json
+**/ad_monitor_config.json
 google_creds.json
 rdp_monitor_config.json
+ad_monitor_config.json
 
-# Local databases
+# Local databases and histories
 *.db
 *.sqlite
+**/*.db
+**/*.sqlite
 
-# Python cache & virtual environments
+# Python bytecode and virtual environments
 __pycache__/
 *.pyc
 venv/
 .venv/
 env/
 .env/
+**/__pycache__/
 
-# IDE files
+# IDE and system files
 .vscode/
 .idea/
+.DS_Store
+Thumbs.db
 
-# CRM log/temp files
-crm/logs/
-crm/tmp/
+# CRM logs and temporary files
+CRM-WEB/logs/
+CRM-WEB/tmp/
