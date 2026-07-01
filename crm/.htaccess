@@ -1,0 +1,30 @@
+# Запобігання перегляду списку файлів в директоріях
+Options -Indexes
+
+# Захист конфігураційних файлів та прихованих файлів
+<FilesMatch "^\.">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+# Захист директорії includes від прямого доступу
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^includes/ - [F,L]
+</IfModule>
+<IfModule !mod_rewrite.c>
+    # Альтернативний варіант, якщо mod_rewrite вимкнено
+    RedirectMatch 403 ^.*/includes/.*$
+</IfModule>
+
+# Налаштування безпеки HTTP заголовків
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-XSS-Protection "1; mode=block"
+</IfModule>

@@ -1,0 +1,33 @@
+# Compiled binaries
+*.exe
+*.msi
+*.zip
+
+# PyInstaller build directories
+build/
+dist/
+*.spec
+
+# Local config & credentials (sensitive data)
+google_creds.json
+rdp_monitor_config.json
+
+# Local databases
+*.db
+*.sqlite
+
+# Python cache & virtual environments
+__pycache__/
+*.pyc
+venv/
+.venv/
+env/
+.env/
+
+# IDE files
+.vscode/
+.idea/
+
+# CRM log/temp files
+crm/logs/
+crm/tmp/

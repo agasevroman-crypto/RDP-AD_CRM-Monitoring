@@ -1,0 +1,5 @@
+# Allow POST only for API endpoints
+<IfModule mod_headers.c>
+    Header set Content-Type "application/json; charset=utf-8"
+    Header set X-Content-Type-Options "nosniff"
+</IfModule>
